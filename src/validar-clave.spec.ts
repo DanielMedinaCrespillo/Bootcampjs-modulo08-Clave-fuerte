@@ -172,4 +172,17 @@ describe("validarClave", () => {
     expect(result.esValida).toBe(false);
     expect(result.error).toBe("La clave debe de tener mayúsculas y minúsculas");
   });
+
+  it("No es valida la clave si tiene todas las especificaciones", () => {
+    //Arrage
+    const nombreUsuario = "Kyoto";
+    const clave = "Doomi1@";
+    //Act
+    const result = validarClave(nombreUsuario, clave, commonPasswords);
+    //Assert
+    expect(result.esValida).toBe(false);
+    expect(result.error).toBe(
+      "La clave debe de tener una longitud mínima de 8 caracteres"
+    );
+  });
 });
